@@ -1,7 +1,7 @@
 {
   "name": "express-validate",
   "description": "Data validation, filtering and sanitization for express",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/Dream-Web/express-validate",
   "keywords": [
     "express",
@@ -18,7 +18,8 @@
     "input"
   ],
   "dependencies": {
-    "express": ">= 1.0.0rc2"
+    "express": ">= 1.0.0rc2",
+    "validator" : ">= 0.2.3"
   },
   "author": "Dmitry Petrov <me@corpix.ru> (http://corpix.ru)",
   "main": ".",
