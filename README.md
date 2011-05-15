@@ -3,6 +3,10 @@ Express-validate: node-validate wrapper for express
 
 `express-validate` is a simple wrapper for [node-validator](https://github.com/chriso/node-validator).
 
+## npm
+
+    npm install express-validate
+
 ## Usage
 
     var express = require('express'),
