@@ -1,7 +1,7 @@
 Express-validate: node-validate wrapper for express
 =================================================================================
 
-`express-validate` is a simple wrapper for [node-validate](https://github.com/chriso/node-validator).
+`express-validate` is a simple wrapper for [node-validator](https://github.com/chriso/node-validator).
 
 ## Usage
 
