@@ -1,0 +1,19 @@
+{ "name" : "express-validate",
+  "description" : "Data validation, filtering and sanitization for express",
+  "version" : "0.0.1",
+  "homepage" : "https://github.com/Dream-Web/express-validate",
+  "keywords" : ["express", "validator", "validation", "validate", "assert", "params", "sanitization", "xss", "entities", "sanitize", "sanitisation", "input"],
+  "author" : "Dmitry Petrov <me@corpix.ru>",
+  "main" : ".",
+  "bugs" :
+    { "mail" : "we@dream-web.ru",
+      "web" : "https://github.com/Dream-Web/express-validate/issues"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Dream-Web/express-validate.git"
+  },
+  "engines" : { "node" : ">=0.2.2" },
+  "licenses" :
+    [ { "type" : "MIT" } ]
+}
