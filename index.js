@@ -11,15 +11,19 @@ module.exports = function(req, res, next) {
     }
           
     req.check = function(param, message, noSearch) {
-      var _param = this.getParam(param)
-      if(_param instanceof Error) throw _param
-      return check((!noSearch ? _param : param), message);
+      if(!noSearch)
+        param = this.getParam(param)
+        if(param instanceof Error) throw param
+      }
+      return check(param, message);
     }
           
     req.filter = req.sanitize = function(param, noSearch) { // TODO: req.filter('var').xss() instead of req.params.var = req.filter('var').xss()
-      var _param = this.getParam(param)
-      if(_param instanceof Error) throw _param
-      return sanitize((!noSearch ? _param : param));
+      if(!noSearch)
+        param = this.getParam(param)
+        if(param instanceof Error) throw param
+      }
+      return sanitize(param);
     }
     return next();
 }
