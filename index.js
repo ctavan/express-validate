@@ -2,8 +2,8 @@
  * Dmitry Petrov http://corpix.ru
  * http://dream-web.ru
  */
-var check = require('validator').check,
-sanitize = require('validator').sanitize;
+var check = require('validator').check
+  , sanitize = require('validator').sanitize
 
 module.exports = function(req, res, next) {
     req.getParam = function(param) {
@@ -15,7 +15,12 @@ module.exports = function(req, res, next) {
         param = this.getParam(param)
         if(param instanceof Error) throw param
       }
-      return check(param, message);
+      var result = check(param, message)
+      if(!result) {
+        throw new Error(['express-validator:', (noSearch ? false : param) || message])
+        return false
+      }
+      return result
     }
           
     req.filter = req.sanitize = function(param, noSearch) { // TODO: req.filter('var').xss() instead of req.params.var = req.filter('var').xss()
@@ -23,7 +28,7 @@ module.exports = function(req, res, next) {
         param = this.getParam(param)
         if(param instanceof Error) throw param
       }
-      return sanitize(param);
+      return sanitize(param)
     }
-    return next();
+    return next()
 }
