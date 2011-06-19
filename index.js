@@ -11,7 +11,7 @@ module.exports = function(req, res, next) {
     }
           
     req.check = function(param, message, noSearch) {
-      if(!noSearch)
+      if(!noSearch) {
         param = this.getParam(param)
         if(param instanceof Error) throw param
       }
@@ -19,7 +19,7 @@ module.exports = function(req, res, next) {
     }
           
     req.filter = req.sanitize = function(param, noSearch) { // TODO: req.filter('var').xss() instead of req.params.var = req.filter('var').xss()
-      if(!noSearch)
+      if(!noSearch) {
         param = this.getParam(param)
         if(param instanceof Error) throw param
       }
