@@ -7,7 +7,7 @@ sanitize = require('validator').sanitize;
 
 module.exports = function(req, res, next) {
     req.getParam = function(param) {
-        return this.params[param] || (this.body ? this.body[param] : new Error(['express-validator: Param', param, 'not found'].join(' ')));
+        return this.params[param] || (this.query && this.query[param]) || (this.body ? this.body[param] : new Error(['express-validator: Param', param, 'not found'].join(' ')));
     }
           
     req.check = function(param, message, noSearch) {
