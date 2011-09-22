@@ -17,6 +17,11 @@ module.exports = function(req, res, next) {
         return this.params[param] || (this.query && this.query[param]) || (this.body ? this.body[param] : new Error(['express-validator: Param', param, 'not found'].join(' ')));
     }
 
+    req.onValidationError = function(message) {
+        throw new Error(message)
+        return false
+    }
+
     req.check = function(param, message, noSearch) {
       if(!noSearch) {
         param = this.getParam(param)
@@ -24,7 +29,7 @@ module.exports = function(req, res, next) {
       }
       var result = v.check(param, message)
       if(!result) {
-        throw new Error(['express-validator:', (noSearch ? false : param) || message])
+        req.onValidationError(['express-validator:', (noSearch ? false : param) || message]);
         return false
       }
       return result
