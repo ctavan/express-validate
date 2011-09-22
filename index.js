@@ -9,7 +9,6 @@ v.error = function(msg) {
   var e = new Error(msg);
   e.type = 'validationError';
   throw e;
-    console.log('Fail');
 }
 
 module.exports = function(req, res, next) {
